@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Adrian Knight — Healthcare IT Professional, Systems Analyst &amp; Product Builder</title>
+  <meta name="description" content="Adrian Knight is a healthcare IT professional, systems analyst, and ITSM specialist who builds practical digital systems for organizations and everyday life." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#0b0b0c',
+            surface: '#111214',
+            'surface-alt': '#151619',
+            accent: '#7dd3fc',
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <style>
+    :root {
+      --background: #0b0b0c;
+      --surface: #111214;
+      --surface-alt: #151619;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
+      --text: #f5f5f5;
+      --text-secondary: #b3b3b3;
+      --text-muted: #777777;
+      --accent: #7dd3fc;
+      --elevate:
+        0 1px 2px rgba(0,0,0,.3),
+        0 12px 30px rgba(0,0,0,.18);
+      --nav-h: 72px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { background: var(--background); }
+    img { max-width: 100%; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(125, 211, 252, .28); color: var(--text); }
+    * { scrollbar-width: thin; scrollbar-color: #2a2b2e var(--background); }
+    *::-webkit-scrollbar { width: 8px; height: 8px; }
+    *::-webkit-scrollbar-track { background: var(--background); }
+    *::-webkit-scrollbar-thumb { background: #2a2b2e; border-radius: 8px; }
+    *::-webkit-scrollbar-thumb:hover { background: #3a3b3e; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      z-index: 80;
+      border-radius: 10px;
+      background: #f5f5f5;
+      color: #0b0b0c;
+      padding: .6rem 1rem;
+      font-size: .8125rem;
+      font-weight: 600;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .wrap {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    .section {
+      padding-block: 64px;
+    }
+    @media (min-width: 768px) {
+      .section { padding-block: 88px; }
+    }
+    @media (min-width: 1024px) {
+      .section { padding-block: 120px; }
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 4.2vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+      }
+    }
+
+    .subhead {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .body-copy {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 65ch;
+    }
+    @media (min-width: 768px) {
+      .body-copy { font-size: 18px; }
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      height: var(--nav-h);
+      background: rgba(11, 11, 12, .72);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 180ms ease, border-color 180ms ease;
+    }
+    .site-nav.is-scrolled {
+      background: rgba(11, 11, 12, .92);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .nav-link:hover,
+    .nav-link.is-active {
+      color: var(--text);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 180ms ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.is-active::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 44px;
+      padding: .7rem 1.15rem;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .btn-primary {
+      background: #f5f5f5;
+      color: #0b0b0c;
+      border: 1px solid #f5f5f5;
+    }
+    .btn-primary:hover {
+      background: #e4e4e4;
+      border-color: #e4e4e4;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #f5f5f5;
+      border: 1px solid var(--border-strong);
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.04);
+    }
+    .btn-nav {
+      min-height: 40px;
+      padding: .55rem 1rem;
+    }
+
+    .hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 48px);
+      padding-bottom: 64px;
+    }
+    @media (min-width: 768px) {
+      .hero { padding-bottom: 88px; }
+    }
+    @media (min-width: 1024px) {
+      .hero {
+        min-height: 100vh;
+        padding-top: calc(var(--nav-h) + 56px);
+        padding-bottom: 120px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .hero-topo {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='1000' height='500' viewBox='0 0 1000 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-80 280 C 80 180 120 360 300 240 S 520 170 690 260 S 920 370 1080 230' fill='none' stroke='rgba(255,255,255,0.55)' stroke-width='1.2'/%3E%3Cpath d='M-70 335 C 100 250 150 430 335 300 S 570 225 760 320 S 910 405 1080 295' fill='none' stroke='rgba(255,255,255,0.32)' stroke-width='1.2'/%3E%3Cpath d='M-110 220 C 70 110 190 285 350 180 S 620 115 790 220 S 930 300 1110 155' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.2'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 1000px 500px;
+      background-position: center top;
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 9vw, 3.75rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      color: var(--text);
+    }
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: clamp(3.5rem, 7vw, 6.5rem);
+      }
+    }
+
+    .portrait {
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      max-width: 460px;
+      margin-inline: auto;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--elevate);
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      filter: grayscale(.28) saturate(.82);
+      transition: filter 500ms ease;
+    }
+    .portrait:hover img {
+      filter: grayscale(0) saturate(1);
+    }
+
+    .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .stat-label {
+      margin-top: .35rem;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .role {
+      padding-block: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .role:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .skill-col h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .skill-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .skill-col li {
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    .skill-col li:last-child { border-bottom: 0; }
+
+    .project {
+      display: grid;
+      gap: 28px;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      box-shadow: var(--elevate);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+    }
+    @media (min-width: 768px) {
+      .project {
+        padding: 28px;
+        gap: 36px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .project {
+        grid-template-columns: 1.15fr .85fr;
+        align-items: center;
+        padding: 36px;
+        gap: 48px;
+      }
+      .project-reverse {
+        grid-template-columns: .85fr 1.15fr;
+      }
+      .project-reverse .project-media { order: 2; }
+    }
+
+    .project-media { min-width: 0; }
+
+    .project-image {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      aspect-ratio: 16 / 10;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 500ms cubic-bezier(.2,.8,.2,1);
+    }
+    .project-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .edu-card {
+      padding: 8px 0;
+    }
+    .edu-card + .edu-card {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+    }
+    @media (min-width: 768px) {
+      .edu-card + .edu-card {
+        border-top: 0;
+        border-left: 1px solid var(--border);
+        padding-top: 8px;
+        padding-left: 48px;
+      }
+      .edu-card:first-child {
+        padding-right: 48px;
+      }
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 180ms ease;
+    }
+    .footer-link:hover { color: var(--accent); }
+
+    .mobile-panel {
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease, transform .28s ease;
+    }
+    .mobile-panel.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background text-[var(--text)] antialiased">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" id="site-nav" aria-label="Primary">
+    <div class="wrap flex h-[72px] items-center justify-between">
+      <a href="#top" class="font-syne text-[17px] font-bold tracking-[-0.04em] text-[var(--text)]" aria-label="Adrian Knight home">AK</a>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="btn btn-primary btn-nav hidden sm:inline-flex">Contact</a>
+        <button type="button" id="nav-toggle" class="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-lg border border-[var(--border)] bg-transparent text-[var(--text)] lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <iconify-icon id="nav-toggle-icon" icon="lucide:menu" width="18"></iconify-icon>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="mobile-panel absolute inset-x-0 top-[72px] border-b border-[var(--border)] bg-[rgba(11,11,12,.96)] px-6 py-5 lg:hidden" hidden>
+      <div class="flex flex-col gap-1">
+        <a href="#about" class="rounded-lg px-3 py-3 text-[15px] text-[var(--text-secondary)] transition-colors duration-[180ms] hover:bg-white/[.03] hover:text-[var(--text)]">About</a>
+        <a href="#experience" class="rounded-lg px-3 py-3 text-[15px] text-[var(--text-secondary)] transition-colors duration-[180ms] hover:bg-white/[.03] hover:text-[var(--text)]">Experience</a>
+        <a href="#projects" class="rounded-lg px-3 py-3 text-[15px] text-[var(--text-secondary)] transition-colors duration-[180ms] hover:bg-white/[.03] hover:text-[var(--text)]">Projects</a>
+        <a href="#skills" class="rounded-lg px-3 py-3 text-[15px] text-[var(--text-secondary)] transition-colors duration-[180ms] hover:bg-white/[.03] hover:text-[var(--text)]">Skills</a>
+        <a href="#contact" class="mt-2 btn btn-primary w-full">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="hero-topo" aria-hidden="true"></div>
+      <div class="wrap relative grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+        <div>
+          <p class="hero-kicker">Adrian Knight</p>
+          <h1 class="hero-title mt-5">
+            Healthcare IT.<br />
+            Systems.<br />
+            Product.
+          </h1>
+          <p class="body-copy mt-7">
+            I work across healthcare technology, IT service management, systems analysis, and product development—solving operational problems and building technology that makes work simpler.
+          </p>
+          <p class="mt-4 max-w-[65ch] text-[15px] leading-7 text-[var(--text-muted)]">
+            Service Operations Center Analyst at Duke Health and founder of NextPhase Technologies.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-primary">
+              View My Work
+              <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+            </a>
+            <a href="#about" class="btn btn-secondary">About Me</a>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <img
+            src="images/adrian-knight-professional.jpg"
+            alt="Professional portrait of Adrian Knight"
+            class="portrait-image"
+            width="840"
+            height="1050"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <p class="label mb-6">About</p>
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
+          <h2 class="section-title reveal">Technology should make work easier.</h2>
+          <div class="reveal">
+            <p class="body-copy">
+              My background is rooted in healthcare IT and service operations. Supporting real users in a complex enterprise environment has taught me how important communication, reliability, troubleshooting, documentation, and process are when technology affects someone's work.
+            </p>
+            <p class="body-copy mt-5">
+              That experience has grown into systems analysis, ITSM, automation, and product development. I enjoy looking beyond the immediate issue to understand how people, workflows, data, and technology connect.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-8 border-t border-[var(--border)] pt-10 sm:grid-cols-3 sm:gap-0">
+          <div class="sm:pr-8">
+            <div class="stat-value">8+ Years</div>
+            <div class="stat-label">Healthcare IT</div>
+          </div>
+          <div class="sm:border-l sm:border-[var(--border)] sm:px-8">
+            <div class="stat-value">ITIL 4</div>
+            <div class="stat-label">Foundation Certified</div>
+          </div>
+          <div class="sm:border-l sm:border-[var(--border)] sm:pl-8">
+            <div class="stat-value">Founder</div>
+            <div class="stat-label">NextPhase Technologies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <p class="label mb-6">Experience</p>
+        <h2 class="section-title max-w-3xl reveal">Healthcare IT, systems, and product work.</h2>
+
+        <div class="mt-12 border-t border-[var(--border)]">
+          <article class="role reveal">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+              <h3 class="font-syne text-[22px] font-semibold tracking-[-0.03em] sm:text-[26px]">Duke University Health System</h3>
+              <p class="text-sm text-[var(--text-muted)]">2018 — Present</p>
+            </div>
+            <p class="mt-2 text-[15px] text-[var(--text-secondary)]">Service Operations Center Analyst</p>
+            <p class="body-copy mt-5">
+              Supporting enterprise healthcare technology operations, ServiceNow workflows, incident management, troubleshooting, documentation, escalation, and customer support.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="tag">ServiceNow</span>
+              <span class="tag">ITSM</span>
+              <span class="tag">Microsoft 365</span>
+              <span class="tag">Healthcare IT</span>
+              <span class="tag">Incident Management</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-16 grid gap-10 border-t border-[var(--border)] pt-12 md:grid-cols-3 md:gap-12">
+          <article>
+            <p class="label">Incident</p>
+            <h3 class="subhead mt-3 text-[1.35rem]">Restore the service.</h3>
+            <p class="mt-3 text-[15px] leading-7 text-[var(--text-secondary)]">Understand impact, identify symptoms, communicate clearly, troubleshoot efficiently, and return the user to a productive state.</p>
+          </article>
+          <article>
+            <p class="label">Problem</p>
+            <h3 class="subhead mt-3 text-[1.35rem]">Find the pattern.</h3>
+            <p class="mt-3 text-[15px] leading-7 text-[var(--text-secondary)]">When the same issue continues to surface, look beyond the individual ticket and identify the underlying cause.</p>
+          </article>
+          <article>
+            <p class="label">Change</p>
+            <h3 class="subhead mt-3 text-[1.35rem]">Improve with control.</h3>
+            <p class="mt-3 text-[15px] leading-7 text-[var(--text-secondary)]">Successful technology changes require planning, communication, validation, documentation, and awareness of downstream impact.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <p class="label mb-6">Skills</p>
+        <h2 class="section-title max-w-3xl reveal">The tools and practices I work with.</h2>
+
+        <div class="mt-12 grid gap-12 md:grid-cols-3 md:gap-16">
+          <div class="skill-col reveal">
+            <h3>IT Service Management</h3>
+            <ul>
+              <li>ServiceNow</li>
+              <li>Incident Management</li>
+              <li>Problem Management</li>
+              <li>Change Management</li>
+              <li>Knowledge Management</li>
+              <li>Service Operations</li>
+            </ul>
+          </div>
+          <div class="skill-col reveal">
+            <h3>Systems &amp; Business</h3>
+            <ul>
+              <li>Systems Analysis</li>
+              <li>Requirements</li>
+              <li>Process Mapping</li>
+              <li>Workflow Design</li>
+              <li>Business Technology</li>
+              <li>Documentation</li>
+            </ul>
+          </div>
+          <div class="skill-col reveal">
+            <h3>Product &amp; Development</h3>
+            <ul>
+              <li>Next.js</li>
+              <li>Supabase</li>
+              <li>APIs</li>
+              <li>REST</li>
+              <li>Microsoft Graph</li>
+              <li>Automation</li>
+              <li>AI-assisted workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <p class="label mb-6">Projects</p>
+        <h2 class="section-title max-w-3xl reveal">Selected systems and products.</h2>
+
+        <div class="mt-12 flex flex-col gap-8">
+          <article class="project reveal">
+            <div class="project-media">
+              <div class="project-image">
+                <img src="images/family-os.jpg" data-fallback="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=1600&auto=format&fit=crop" alt="Family OS product interface" />
+              </div>
+            </div>
+            <div>
+              <p class="label">Personal product / Smart home</p>
+              <h3 class="font-syne mt-3 text-[28px] font-semibold tracking-[-0.03em] sm:text-[32px]">Family OS</h3>
+              <p class="body-copy mt-4">
+                A family operating system connecting calendars, meals, smart-home controls, presence, voice, alerts, and shared household information.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="tag">Next.js</span>
+                <span class="tag">Smart Home</span>
+                <span class="tag">APIs</span>
+                <span class="tag">Voice</span>
+                <span class="tag">Automation</span>
+              </div>
+              <a data-project-href="familyOs" class="btn btn-secondary mt-7" rel="noopener noreferrer">
+                View project
+                <iconify-icon icon="lucide:arrow-up-right" width="15"></iconify-icon>
+              </a>
+            </div>
+          </article>
+
+          <article class="project project-reverse reveal">
+            <div class="project-media">
+              <div class="project-image">
+                <img src="images/business-os.jpg" data-fallback="https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1600&auto=format&fit=crop" alt="NextPhase Business OS platform" />
+              </div>
+            </div>
+            <div>
+              <p class="label">SaaS / Business operations</p>
+              <h3 class="font-syne mt-3 text-[28px] font-semibold tracking-[-0.03em] sm:text-[32px]">NextPhase Business OS</h3>
+              <p class="body-copy mt-4">
+                A multi-tenant operating platform connecting customers, bookings, invoices, payments, communications, and operational workflows.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="tag">Next.js</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">CRM</span>
+                <span class="tag">Payments</span>
+                <span class="tag">Multi-tenant SaaS</span>
+              </div>
+              <a data-project-href="businessOs" class="btn btn-secondary mt-7" rel="noopener noreferrer">
+                View project
+                <iconify-icon icon="lucide:arrow-up-right" width="15"></iconify-icon>
+              </a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-media">
+              <div class="project-image">
+                <img src="images/service-desk.jpg" data-fallback="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop" alt="IT service desk platform" />
+              </div>
+            </div>
+            <div>
+              <p class="label">ITSM / Service operations</p>
+              <h3 class="font-syne mt-3 text-[28px] font-semibold tracking-[-0.03em] sm:text-[32px]">IT Service Desk</h3>
+              <p class="body-copy mt-4">
+                A service desk platform exploring AI-assisted support, ticket intake, escalation, knowledge, agent tooling, and role-based workflows.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="tag">ITSM</span>
+                <span class="tag">Service Desk</span>
+                <span class="tag">AI Support</span>
+                <span class="tag">Workflows</span>
+                <span class="tag">Knowledge</span>
+              </div>
+              <a data-project-href="serviceDesk" class="btn btn-secondary mt-7" rel="noopener noreferrer">
+                View project
+                <iconify-icon icon="lucide:arrow-up-right" width="15"></iconify-icon>
+              </a>
+            </div>
+          </article>
+
+          <article class="project project-reverse reveal">
+            <div class="project-media">
+              <div class="project-image">
+                <img src="images/nextphase.jpg" data-fallback="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1600&auto=format&fit=crop" alt="NextPhase Technologies" />
+              </div>
+            </div>
+            <div>
+              <p class="label">Founder / Business technology</p>
+              <h3 class="font-syne mt-3 text-[28px] font-semibold tracking-[-0.03em] sm:text-[32px]">NextPhase Technologies</h3>
+              <p class="body-copy mt-4">
+                Technology services and products designed to help small organizations modernize websites, business systems, automation, cloud services, and digital operations.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="tag">Business Technology</span>
+                <span class="tag">Cloud</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Consulting</span>
+              </div>
+              <a data-project-href="nextphase" class="btn btn-secondary mt-7" rel="noopener noreferrer">
+                Explore NextPhase
+                <iconify-icon icon="lucide:arrow-up-right" width="15"></iconify-icon>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <p class="label mb-6">Education &amp; certification</p>
+        <div class="grid gap-12 md:grid-cols-2 md:gap-0">
+          <article class="edu-card reveal">
+            <h2 class="subhead">North Carolina A&amp;T State University</h2>
+            <p class="mt-3 text-[16px] font-medium text-[var(--text)]">B.S. Business Information Technology</p>
+            <p class="body-copy mt-4">
+              Coursework and applied learning across business systems, enterprise technology, analytics, information systems, and technology management.
+            </p>
+          </article>
+          <article class="edu-card reveal">
+            <h2 class="subhead">ITIL 4 Foundation</h2>
+            <p class="mt-3 text-[16px] font-medium text-[var(--text)]">Certified</p>
+            <p class="body-copy mt-4">
+              Formal foundation in modern IT service management and value-driven service delivery.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section border-t border-[var(--border)]">
+      <div class="wrap">
+        <div class="max-w-[40rem]">
+        <p class="label mb-6">Contact</p>
+        <h2 class="section-title reveal">Get in touch.</h2>
+        <p class="body-copy mt-6 reveal">
+          I'm interested in conversations around healthcare technology, IT service management, systems analysis, and practical business technology.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3 reveal">
+          <a data-email-href class="btn btn-primary">
+            Email me
+            <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+          </a>
+          <a data-linkedin-href target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            LinkedIn
+            <iconify-icon icon="lucide:arrow-up-right" width="15"></iconify-icon>
+          </a>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--border)]">
+    <div class="wrap py-10">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <p class="font-syne text-[16px] font-semibold tracking-[-0.03em]">Adrian Knight</p>
+        <p class="max-w-sm text-[13px] leading-6 text-[var(--text-muted)] md:text-center">
+          Healthcare IT • Systems Analysis • ITSM • Product
+        </p>
+        <div class="flex flex-wrap gap-5">
+          <a data-linkedin-href target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a data-email-href class="footer-link">Email</a>
+          <a data-nextphase-href class="footer-link" rel="noopener noreferrer">NextPhase</a>
+        </div>
+      </div>
+      <p class="mt-8 border-t border-[var(--border)] pt-6 text-[13px] text-[var(--text-muted)]">
+        © 2026 Adrian Knight. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const portfolioConfig = {
+      email: "adrian.knight@nextphaseit.org",
+      linkedin: "", // e.g. "https://www.linkedin.com/in/your-handle"
+      nextphase: "https://www.nextphaseit.org",
+      projects: {
+        familyOs: "https://familyos-mu.vercel.app",
+        businessOs: "https://app.nextphaseit.org",
+        serviceDesk: "https://portal.nextphaseit.org",
+        nextphase: "https://www.nextphaseit.org"
+      }
+    };
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    document.querySelectorAll("[data-email-href]").forEach((el) => {
+      el.href = portfolioConfig.email ? `mailto:${portfolioConfig.email}` : "#contact";
+    });
+
+    document.querySelectorAll("[data-linkedin-href]").forEach((el) => {
+      if (portfolioConfig.linkedin) {
+        el.href = portfolioConfig.linkedin;
+      } else {
+        el.hidden = true;
+      }
+    });
+
+    document.querySelectorAll("[data-nextphase-href]").forEach((el) => {
+      el.href = portfolioConfig.nextphase || "#contact";
+      if (portfolioConfig.nextphase) el.target = "_blank";
+    });
+
+    document.querySelectorAll("[data-project-href]").forEach((el) => {
+      const key = el.getAttribute("data-project-href");
+      const url = portfolioConfig.projects?.[key];
+      if (url) {
+        el.href = url;
+        el.target = "_blank";
+      } else {
+        el.hidden = true;
+      }
+    });
+
+    document.querySelectorAll("img[data-fallback]").forEach((img) => {
+      img.addEventListener("error", function onError() {
+        const fallback = img.getAttribute("data-fallback");
+        if (fallback && img.src !== fallback) {
+          img.src = fallback;
+          return;
+        }
+        img.remove();
+      });
+    });
+
+    document.querySelectorAll("img.portrait-image").forEach((img) => {
+      img.addEventListener("error", () => img.remove());
+    });
+
+    const nav = document.getElementById("site-nav");
+    const navToggle = document.getElementById("nav-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+    const navToggleIcon = document.getElementById("nav-toggle-icon");
+
+    const setScrolled = () => {
+      nav.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    setScrolled();
+    window.addEventListener("scroll", setScrolled, { passive: true });
+
+    function setMenu(open) {
+      if (open) {
+        mobileNav.hidden = false;
+        requestAnimationFrame(() => mobileNav.classList.add("open"));
+      } else {
+        mobileNav.classList.remove("open");
+        window.setTimeout(() => { if (!mobileNav.classList.contains("open")) mobileNav.hidden = true; }, 280);
+      }
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (navToggleIcon) navToggleIcon.setAttribute("icon", open ? "lucide:x" : "lucide:menu");
+    }
+
+    navToggle.addEventListener("click", () => {
+      setMenu(mobileNav.hidden || !mobileNav.classList.contains("open"));
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    const sectionIds = ["about", "experience", "skills", "projects", "contact"];
+    const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+
+    const setActiveLink = () => {
+      const offset = 120;
+      let current = "";
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) current = id;
+      });
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${current}`;
+        link.classList.toggle("is-active", isActive);
+      });
+    };
+    setActiveLink();
+    window.addEventListener("scroll", setActiveLink, { passive: true });
+
+    if (!prefersReducedMotion) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

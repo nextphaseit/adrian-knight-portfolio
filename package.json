@@ -1,0 +1,13 @@
+{
+  "name": "adrian-knight-portfolio",
+  "private": true,
+  "description": "Static portfolio plus Playwright screenshot capture for project images.",
+  "scripts": {
+    "screenshots": "node scripts/capture-portfolio-screenshots.js",
+    "screenshots:install": "playwright install chromium",
+    "screenshots:optimize": "node scripts/capture-portfolio-screenshots.js --optimize-only"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}
