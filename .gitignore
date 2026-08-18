@@ -9,3 +9,4 @@ auth/*.json
 .vercel
 dist
 .next
+.env*
