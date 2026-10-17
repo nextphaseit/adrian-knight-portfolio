@@ -1,0 +1,31 @@
+ADRIAN KNIGHT
+Healthcare IT | Systems Analysis | IT Service Management | Product Development
+
+Contact: adrian.knight@nextphaseit.org
+Portfolio: https://adrian-knight-portfolio.vercel.app
+Business: https://www.nextphaseit.org
+
+PROFESSIONAL PROFILE
+Healthcare IT professional and founder of NextPhase Technologies LLC, combining service operations experience with practical business technology development.
+
+EXPERIENCE
+Duke University Health System — Service Operations Center Analyst
+Supports enterprise healthcare technology operations, ServiceNow workflows, incident management, troubleshooting, documentation, escalation, and customer support.
+
+NextPhase Technologies LLC — Founder
+Business technology work spanning websites, customer-facing platforms, workflow automation, and systems integration.
+
+EDUCATION AND CREDENTIALS
+North Carolina A&T State University — B.S. Business Information Technology, in progress; anticipated completion 2027.
+ITIL 4 Foundation — Certified.
+
+SELECTED PROJECTS
+FamilyOS — Household routines, calendars, and shared family information.
+Strokes of Faith — Booking platform connecting customers, bookings, invoices, payments, communications, and scheduling.
+Kiosk applications — Touchscreen ordering and service selection interfaces, including PWA and full-screen behavior.
+IT service desk platform — Prototype exploring AI-assisted support, ticket intake, escalation, knowledge, and agent workflows.
+
+TECHNOLOGY AREAS
+ServiceNow, ITSM, Microsoft 365, Next.js, Supabase, workflow automation, technical documentation.
+
+Professional profile updated October 2026. Degree is in progress. Prototype work is identified as such.
